@@ -1,0 +1,12 @@
+0000000000000000000000000000000000000000 d4eb1d71a0bae450cdf6849de66944a81da32950 bold24-AY <itsayush24may@gmail.com> 1774964117 +0530	commit (initial): Initial commit for LunarLander DDPG
+d4eb1d71a0bae450cdf6849de66944a81da32950 20efda59b37a394152d044d851ed839248cae605 bold24-AY <itsayush24may@gmail.com> 1774980407 +0530	commit: Initial DDPG core models and experience replay buffer
+20efda59b37a394152d044d851ed839248cae605 3472748a82a005acbf94015881ec4bc0a3a905b9 bold24-AY <itsayush24may@gmail.com> 1774980421 +0530	commit: Add LunarLander DDPG agent logic and weight management
+3472748a82a005acbf94015881ec4bc0a3a905b9 ceab06301f832c629d90d693e0eb956e59189308 bold24-AY <itsayush24may@gmail.com> 1774980426 +0530	commit: Implement Rich UI training CLI and agent evaluation script
+ceab06301f832c629d90d693e0eb956e59189308 558a0d63456eedbddd9efc440ddb919b7828dcdc bold24-AY <itsayush24may@gmail.com> 1774980432 +0530	commit: Finalize Streamlit dashboard, results, and comprehensive documentation
+558a0d63456eedbddd9efc440ddb919b7828dcdc a4bba5948904dca6475458d2a02a3de73cbab108 bold24-AY <itsayush24may@gmail.com> 1774980550 +0530	commit: Refine README for professional clarity and results overview
+a4bba5948904dca6475458d2a02a3de73cbab108 0000000000000000000000000000000000000000 bold24-AY <itsayush24may@gmail.com> 1774980597 +0530	Branch: renamed refs/heads/master to refs/heads/main
+0000000000000000000000000000000000000000 a4bba5948904dca6475458d2a02a3de73cbab108 bold24-AY <itsayush24may@gmail.com> 1774980597 +0530	Branch: renamed refs/heads/master to refs/heads/main
+a4bba5948904dca6475458d2a02a3de73cbab108 73f27f7f0f4e0c8d4d22012497645fc70b73a58a bold24-AY <itsayush24may@gmail.com> 1774981920 +0530	commit: Add final lab report PDF
+73f27f7f0f4e0c8d4d22012497645fc70b73a58a 73f27f7f0f4e0c8d4d22012497645fc70b73a58a bold24-AY <itsayush24may@gmail.com> 1774982395 +0530	reset: moving to fork/main
+73f27f7f0f4e0c8d4d22012497645fc70b73a58a e478ece2fd5983593c906969a4675a86e341fafb bold24-AY <itsayush24may@gmail.com> 1774982395 +0530	commit: 2026-03-31 23:55:00
+e478ece2fd5983593c906969a4675a86e341fafb 8e3bacd16dcde49417567ecf1b0d8610fb480dc1 bold24-AY <itsayush24may@gmail.com> 1774982555 +0530	commit: 23BAI10783 - Clean Submission for DDPG Experiment
