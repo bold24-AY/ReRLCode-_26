@@ -2,19 +2,19 @@
 
 Custom, high-performance implementation of **Deep Deterministic Policy Gradient (DDPG)** for the `LunarLanderContinuous-v3` environment. No boilerplate, no nonsense—just a clean and efficient agent that learns to land perfectly.
 
-## 📊 Performance (850 / 1500 Episodes)
+## 📊 Final Training Results (1500 / 1500 Episodes) - COMPLETED 🚀
 
-The agent has cleared **850 episodes** and is already showing solid convergence. We're aiming for **1500 episodes** for that rock-solid stability!
+The agent has successfully completed the full training cycle of **1500 episodes**. It has mastered the landing maneuvers with a final rolling average score of **~267**, which indicates the environment is fully solved.
 
-### 📈 Training Results
-![Reward Progression](reward_progression.png)
+### 📈 Final Reward Curve
+![Reward Progression](metrics/LunarLanderContinuous-v3_learning_curve.png)
 
-The reward curve is looking great! You can see it climbing from those initial failed attempts into consistent positive territory around episode 800.
+The reward curve shows a smooth and steady convergence. Starting from purely random attempts, the DDPG agent learned the underlying physics of thrust and orientation to achieve a stable peak around episode 1100, maintaining it until the end.
 
 ### 🎥 Watching it Fly
 ![Agent Performance](during_training.gif)
 
-This GIF shows the best landing recorded during the current training run. Pretty smooth!
+This GIF displays the successful touchdown performance of the DDPG agent. Clean, stable, and efficient.
 
 ## 🚀 Key Features
 
