@@ -5,10 +5,6 @@ __pycache__/
 env/
 venv/
 ENV/
-weights/
-metrics/
-environments/
 .ipynb_checkpoints/
-*.pth
-*.pt
 .git/
+.git_backup/

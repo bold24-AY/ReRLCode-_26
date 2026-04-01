@@ -33,6 +33,9 @@ def enjoy_agent(episodes=5):
         score = 0
         
         while not (done or truncated):
+            # Explicitly render the frame for human mode
+            env.render()
+            
             # Select action WITHOUT noise for testing/evaluation
             action = agent.select_action(state, add_noise=False)
             state, reward, done, truncated, _ = env.step(action)
