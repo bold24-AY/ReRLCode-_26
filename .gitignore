@@ -2,5 +2,6 @@
 *.pyc
 changes.txt
 debug/
-model/
+.venv/
+model/*_data.txt
 instructions.md

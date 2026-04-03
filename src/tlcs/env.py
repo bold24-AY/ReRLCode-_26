@@ -1,9 +1,17 @@
 from dataclasses import dataclass
+import os
 from pathlib import Path
 
 import numpy as np
 import traci
 from numpy.typing import NDArray
+
+# Ensure SUMO_HOME is set for Windows users if installed in default path
+if "SUMO_HOME" not in os.environ:
+    if Path(r"C:\Program Files (x86)\Eclipse\Sumo").exists():
+        os.environ["SUMO_HOME"] = r"C:\Program Files (x86)\Eclipse\Sumo"
+        os.environ["PATH"] += os.pathsep + r"C:\Program Files (x86)\Eclipse\Sumo\bin"
+
 from sumolib import checkBinary
 
 from tlcs.constants import (
