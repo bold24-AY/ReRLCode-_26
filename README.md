@@ -1,35 +1,55 @@
-# Advanced Deep Q-Learning Traffic Signal Controller
+# Robust Deep Q-Learning Traffic Signal Controller
 
-A custom PyTorch-based Deep Q-Learning agent that optimizes traffic light phases for a 4-way intersection using SUMO (Simulation of Urban MObility). Designed for robust traffic flow, lower wait times, and detailed analytics.
+An advanced, PyTorch-based Deep Q-Learning (DQN) agent that autonomously optimizes traffic light phases for a complex 4-way intersection using SUMO (Simulation of Urban MObility). 
 
-> **Acknowledgments:** 
-> This project is inspired by and heavily builds upon the logic and structure from [AndreaVidali/Deep-QLearning-Agent-for-Traffic-Signal-Control](https://github.com/AndreaVidali/Deep-QLearning-Agent-for-Traffic-Signal-Control). Massive credit to Andrea for the original architecture, state representation formulas, and SUMO configurations. This repository refines the hyperparameters, neural network structures, and visualization utilities, acting as a from-scratch adaptation of their amazing work.
+Designed for robust traffic flow, lower wait times, and detailed analytics, this system natively balances queues and dynamically converges early via an intelligent patience-based halting mechanism.
 
-## Overview
-This implementation discretizes the environment into 80 binary state cells for incoming traffic and gives the agent control over 4 phase actions. It features:
-- Modified Hyper-parameters (e.g., wider layers, optimized epochs) targeting stable convergence.
-- Deep network with experience replay buffer.
-- Robust visualization plots (seaborn-styled) for rewards, delays, and queue lengths.
+## High-Level Architecture
+This implementation discretizes the environment into 80 binary state cells for incoming traffic, allowing precise representation of lane occupancy. The agent directly controls 4 fixed phase actions:
+1. North-South Straight/Right
+2. North-South Left
+3. East-West Straight/Right
+4. East-West Left
+
+It features:
+- **Optimized Hyper-parameters**: Configurable deep networks (`[256]` width layers, optimized `batch_size`) targeting rapid stable convergence.
+- **Experience Replay Buffer**: Ensures randomized sampling, un-correlating successive actions to prevent compounding structural bias.
+- **Dynamic Early Stopping**: Constantly monitors the simulation queue cumulative wait times. To avoid overfitting, it automatically halts training if convergence is reached over a multi-episode window.
+
+## Training Analytics
+The pipeline automatically generates evaluation curves to monitor the DQN Agent’s progress across episodic checkpoints.
+
+### Reward Optimization
+The cumulative negative reward per episode over the training timeline.
+  ![Reward Convergence Plot](model/plot_reward.png)
+
+### Cumulative Wait Time Delay
+Total combined delay in seconds across all cars, minimizing heavily over time as the agent masters intersection logic.
+  ![Delay Reduction Plot](model/plot_delay.png)
+
+### Queue Length Reduction
+The average queue length directly correlating to the intersection bottleneck impact.
+  ![Queue Length Plot](model/plot_queue.png)
 
 ## Setup Requirements
 
-- Python 3.13 (managed via `uv`)
-- SUMO & SUMO-GUI configured in your `PATH`
-- PyTorch (CPU training by default)
+- Python 3.13+ (managed via `uv` or native)
+- [SUMO & SUMO-GUI](https://sumo.dlr.de/docs/Downloads.php) installed natively. *(The agent automatically hooks to `C:\Program Files (x86)\Eclipse\Sumo` if `SUMO_HOME` is missing).*
+- PyTorch
 
-Install requirements:
+### Initialization
 ```bash
 uv sync
 ```
 
 ## Running the Project
 
-To train the model:
+To let the dynamic DQN agent train (which will early-stop upon confirmed convergence):
 ```bash
 uv run tlcs train
 ```
 
-To test the model:
+To test the model in the GUI:
 ```bash
-uv run tlcs test --model-path model/run-01 --test-name evaluation_run
+uv run tlcs test --model-path model/ --test-name evaluation_run
 ```

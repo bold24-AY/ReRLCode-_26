@@ -147,6 +147,18 @@ def training_session(settings_file: Path, out_path: Path) -> None:
         logger.info(f"\tCumulative wait: {last_cumulative_wait}")
         logger.info(f"\tAvg queue: {last_avg_queue_length}")
 
+        if episode >= 200:
+            last_50 = training_stats["cumulative_wait"][-50:]
+            prev_50 = training_stats["cumulative_wait"][-100:-50]
+            if len(last_50) == 50 and len(prev_50) == 50:
+                mean_last_50 = sum(last_50) / 50.0
+                mean_prev_50 = sum(prev_50) / 50.0
+                
+                if abs(mean_last_50 - mean_prev_50) < 0.05 * mean_prev_50:
+                    logger.info(f"Early stopping at episode {episode + 1}: model converged (wait time change < 5%).")
+                    break
+
+
     out_path.mkdir(parents=True, exist_ok=True)
     agent.save_model(out_path)
 
